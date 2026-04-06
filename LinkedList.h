@@ -14,13 +14,31 @@ class LinkedList {
     private:
         Node* head;
         Node* tail;
-void CopyList (const LinkedList & other); 
+void CopyList (const LinkedList & other){
+    Node* otherCurr = other.head; //starts the copying at the head of list 
+while (otherCurr != nullptr){//going through each node in the other list
+    Node* newNode = new Node;
+    newNode ->data =otherCurr->data;
+    if (head == nullptr) { //if list is empty new node becomes head and tail 
+        head = newNode;
+        tail = newNode;
+    }
+        else {
+            //put new node at the end 
+            tail->next=newNode;
+            tail= newNode;
+        }
+    otherCurr = otherCurr-> next;// moving to next node in the other list
+}
+}
+    
+
     public:
         // constructor
-        LinkedList();{
+        LinkedList(){
             head = nullptr;
             tail = nullptr;
-        
+        }
 LinkedList (const LinkedList& other) {
     head = nullptr;
     tail = nullptr;
@@ -73,7 +91,7 @@ void RemoveTail () {
 void Traverse() {
     Node* curr = head;
     while (curr != nullptr) {
-        curr->data.GetName();
+        cout<< curr->data.GetName();
         curr = curr->next;
     }
 }
