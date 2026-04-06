@@ -22,6 +22,11 @@ using namespace std;
 
 int main() {
     GarmentList list;
-
+Garment g1;
+    g1.SetID(1);
+    g1.SetName("jacket");
+    g1.SetType("top");
+    g1.SetColor("blue");
+    g1.SetisClean
 
 }
