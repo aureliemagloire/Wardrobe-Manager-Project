@@ -2,8 +2,6 @@
 #define GARMENT_H
 #include <iostream>
 #include <string>
-#include <iostream>
-#include <string>
 using namespace std;
 
 class Garment {
