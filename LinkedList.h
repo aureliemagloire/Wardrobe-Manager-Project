@@ -27,11 +27,13 @@ class LinkedList {
             if(head == nullptr){
                 head = newNode;
                 tail = newNode;
+                newNode ->next = nullptr;
             }
             // if current node is at the end, new node will be new tail
-            else if(currNode = tail){
+            else if(currNode == tail){
                 tail -> next = newNode;
                 tail = newNode;
+                newNode ->next = nullptr;
             }
             // current node will point to new node
             else {
@@ -41,10 +43,35 @@ class LinkedList {
         }
 
         // remove node
-
+void RemoveTail () {
+    if (head == nullptr) { // check if list is empty 
+        return; }
+    
+    if (head == tail) { //if its only one node 
+        delete head; 
+        head = nullptr;
+        tail = nullptr;
+        return;} 
+    
+    Node* curr = head; //more than one node
+    
+    while (curr->next != tail) {//getting to the node right before the tail 
+        curr = curr->next;
+    }
+    delete tail; //deleting old tail
+    tail =curr; //new tail 
+    tail ->next = nullptr; 
+}
         // traverse 
+void Traverse() {
+    Node* curr = head;
+    while (curr != nullptr) {
+        curr->data.PrintInfo();
+        curr = curr -> next;
+    }
+}
 
-        // copy}
+        // copy
 
 };
 #endif
