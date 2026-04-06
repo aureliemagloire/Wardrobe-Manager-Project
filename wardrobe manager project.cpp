@@ -27,6 +27,34 @@ Garment g1;
     g1.SetName("jacket");
     g1.SetType("top");
     g1.SetColor("blue");
-    g1.SetisClean
+    g1.SetIsClean(true);
+
+Garment g2;
+    g1.SetID(2);
+    g1.SetName("leggings");
+    g1.SetType("bottoms");
+    g1.SetColor("black");
+    g1.SetIsClean(false);
+
+Garment g3;
+    g1.SetID(3);
+    g1.SetName("tank top");
+    g1.SetType("top");
+    g1.SetColor("pink");
+    g1.SetIsClean(true);
+    //create nodes 
+    
+    Node * n1 = new Node; 
+    n1->data = g1;
+    n1->next = nullptr;
+
+    Node * n2 = new Node; 
+    n1->data = g2;
+    n1->next = nullptr;\
+
+    Node * n3 = new Node; 
+    n1->data = g3;
+    n1->next = nullptr;
+    
 
 }
