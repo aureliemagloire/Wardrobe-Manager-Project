@@ -14,12 +14,19 @@ class LinkedList {
     private:
         Node* head;
         Node* tail;
+void CopyList (const LinkedList & other); 
     public:
         // constructor
-        LinkedList(){
+        LinkedList();{
             head = nullptr;
             tail = nullptr;
-        }
+        
+LinkedList (const LinkedList& other) {
+    head = nullptr;
+    tail = nullptr;
+    CopyList(other);
+}
+};
 
         // insert new node
         void Insert(Node* newNode, Node* currNode){
@@ -66,12 +73,11 @@ void RemoveTail () {
 void Traverse() {
     Node* curr = head;
     while (curr != nullptr) {
-        curr->data.PrintInfo();
-        curr = curr -> next;
+        curr->data.GetName();
+        curr = curr->next;
     }
 }
 
-        // copy
 
 };
 #endif
