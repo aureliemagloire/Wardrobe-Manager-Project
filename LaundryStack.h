@@ -1,18 +1,21 @@
 #ifndef LAUNDRYSTACK_H
 #define LAUNDRYSTACK_H
-#include "Garment.h"
-#include "GarmentList.h"
-#include "Section.h"
-#include "Wardrobe.h"
-#include "OutfitQueue.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
+struct StackNode {
+    int id;
+    StackNode* next;
+    StackNode(int i){
+        id = i;
+        next = nullptr;
+    }
+};
+
 class LaundryStack{
-    Node * top;
+    StackNode * top;
     int count;
-    int data; 
 
     public:
         LaundryStack(){
@@ -20,34 +23,39 @@ class LaundryStack{
             count = 0;
         }
 
+        ~LaundryStack() {
+            Clear();
+        }
+
         // push dirty items or add to dirty pile
-        void Push(int item) {
-            Node* temp = new Node();
+        void Push(int id) {
+            StackNode* temp = new StackNode(id);
             temp->next = top;
             top = temp;
             count++;
         }
 
         // to wash dirty items, remove from top of pile
-        int Pop(int item) {
+        int Pop() {
             if (top == NULL) {
-                cout << "empty" << endl;
+                cout << "Pile is empty." << endl;
                 return -1;
             }
             
-            Node* temp = top;
-            top = top->next;
-            item = temp->data; // error: no conversion from Garment to int exists fixed: 
+            StackNode* temp = top;
+            int item = temp->id; // get id
+            top = top->next; // move top pointer
+            // prev error: no conversion from Garment to int exists fixed: created private stack StackNode for stack that holds int
             delete temp;
+
+            count--;
             return item;
-             count--;
         }
 
-        // empty pile
         void Clear() {
-            Node* curr = top; 
+            StackNode* curr = top; 
             while (curr != nullptr) { 
-                Node* temp = curr;
+                StackNode* temp = curr;
                 curr = curr->next; 
                 delete temp;
             }
@@ -61,7 +69,6 @@ class LaundryStack{
         }
 
 };
-
 
 
 #endif
