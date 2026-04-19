@@ -15,6 +15,7 @@
 #include "Section.h"
 #include "Wardrobe.h"
 #include "LaundryStack.h"
+#include "OutfitQueue.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ int main() {
 
     GarmentList list;
     LaundryStack Hamper;
+    OutfitQueue outfitQueue;
 
     // create garments
     Garment g1;
@@ -87,6 +89,20 @@ int main() {
         cout << "Garmenets: " << list.size() << " " << endl;
         list.Traverse();
         cout << endl;
+//tesing outfit queue 
+cout << "Outfit Queue Test";
+    outfitQueue.enqueue(g1);
+    outfitQueue.enqueue(g2);
+    outfitQueue.enqueue(g3);
+
+cout << "Outfit Queue: "<<endl;
+outfitQueue.displayQueue();
+
+cout << "next item: "; << outfitQueue.peek().getName() 
+outfitQueue.dequeue();
+
+cout << "After that one item:"<<endl;
+outfitQueue.displayQueue();
 
 
         return 0;
