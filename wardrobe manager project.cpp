@@ -30,18 +30,18 @@ Garment g1;
     g1.SetIsClean(true);
 
 Garment g2;
-    g1.SetID(2);
-    g1.SetName("leggings");
-    g1.SetType("bottoms");
-    g1.SetColor("black");
-    g1.SetIsClean(false);
+    g2.SetID(2);
+    g2.SetName("leggings");
+    g2.SetType("bottoms");
+    g2.SetColor("black");
+    g2.SetIsClean(false);
 
 Garment g3;
-    g1.SetID(3);
-    g1.SetName("tank top");
-    g1.SetType("top");
-    g1.SetColor("pink");
-    g1.SetIsClean(true);
+    g3.SetID(3);
+    g3.SetName("tank top");
+    g3.SetType("top");
+    g3.SetColor("pink");
+    g3.SetIsClean(true);
     //create nodes 
     
     Node * n1 = new Node; 
@@ -49,12 +49,12 @@ Garment g3;
     n1->next = nullptr;
 
     Node * n2 = new Node; 
-    n1->data = g2;
-    n1->next = nullptr;\
+    n2->data = g2;
+    n2->next = nullptr;\
 
     Node * n3 = new Node; 
-    n1->data = g3;
-    n1->next = nullptr;
+    n3->data = g3;
+    n3->next = nullptr;
     
 
 }
