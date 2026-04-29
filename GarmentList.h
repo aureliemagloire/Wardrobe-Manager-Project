@@ -71,24 +71,17 @@ class GarmentList {
 // changed func name from insert to pushback, added count so it updates when a node is added
         void PushBack(Garment g){
             Node* newNode = new Node(g);
-            Node* currNode = head;
-            // if head points to null, new node will be head and tail
+            // if the list is empty, new node becomes both head and tail 
             if(head == nullptr){
                 head = newNode;
                 tail = newNode;
-                newNode ->next = nullptr;
             }
-            // if current node is at the end, new node will be new tail
-            else if(currNode == tail){
-                tail -> next = newNode;
-                tail = newNode;
-                newNode ->next = nullptr;
-            }
-            // current node will point to new node
+            // add new node to the end of list 
             else {
-            newNode -> next = currNode -> next;
-            currNode -> next = newNode;
+                tail -> next = newNode; //link new node to end of list 
+                tail = newNode; //updating tail to the last node 
             }
+        
             count ++;
         }
 
